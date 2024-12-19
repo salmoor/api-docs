@@ -1,0 +1,402 @@
+responses:
+  cartItemResource:
+    content:
+      application/vnd.api+json:
+        example:
+          data:
+            id: 1
+            type: cart_items
+            attributes:
+              quantity: 1
+            relationships:
+              store_product:
+                data:
+                  id: 1
+                  type: store_products
+        schema:
+          type: object
+          properties:
+            data:
+              type: object
+              properties:
+                type:
+                  type: string
+                id:
+                  type: integer
+                attributes:
+                  type: object
+                  properties:
+                    quantity:
+                      type: integer
+                relationships:
+                  type: object
+                  properties:
+                    store_product:
+                      type: object
+                      properties:
+                        data:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            id:
+                              type: integer
+    description: Cart item resource
+  cartResource:
+    content:
+      application/vnd/api+json:
+        example:
+          data:
+            id: 1
+            type: carts
+            attributes:
+              created_at: "2022-12-19T09:45:15.000000Z"
+              updated_at: "2022-12-19T09:45:15.000000Z"
+            relationships:
+              cart_items:
+                data:
+                  - id: 1
+                    type: cart_items
+                  - id: 2
+                    type: cart_items
+    description: Cart object
+  cartResources:
+    content:
+      application/vnd/api+json:
+        example:
+          data:
+            - id: 1
+              type: carts
+              attributes:
+                created_at: "2022-12-19T09:45:15.000000Z"
+                updated_at: "2022-12-19T09:45:15.000000Z"
+              relationships:
+                cart_items:
+                  data:
+                    - id: 1
+                      type: cart_items
+                    - id: 2
+                      type: cart_items
+            - id: 2
+              type: carts
+              attributes:
+                created_at: "2022-12-19T09:45:15.000000Z"
+                updated_at: "2022-12-19T09:45:15.000000Z"
+              relationships:
+                cart_items:
+                  data:
+                    - id: 3
+                      type: cart_items
+                    - id: 4
+                      type: cart_items
+    description: Cart objects
+abandoned-carts:
+  get:
+    description: List abandoned carts
+    parameters:
+      - $ref: "../parameters.yml#/limit"
+      - $ref: "../parameters.yml#/includeCart"
+    responses:
+      "200":
+        $ref: "#/responses/cartResources"
+cart-items/{id}:
+  patch:
+    description: Update cart item
+    parameters:
+      - description: Id of a cart item
+        example: 1
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      content:
+        application/vnd.api+json:
+          example:
+            data:
+              type: cart_items
+              attributes:
+                quantity: 1
+              relationships:
+                store_product:
+                  data:
+                    id: 1
+                    type: store_products
+          schema:
+            properties:
+              data:
+                properties:
+                  type:
+                    type: string
+                  attributes:
+                    properties:
+                      quantity:
+                        type: integer
+                    type: object
+                  relationships:
+                    properties:
+                      store_product:
+                        properties:
+                          data:
+                            properties:
+                              id:
+                                type: integer
+                              type:
+                                type: string
+                            type: object
+                        type: object
+                type: object
+    responses:
+      200:
+        $ref: "#/responses/cartItemResource"
+  delete:
+    description: Delete cart item
+    parameters:
+      - description: Id of a cart item
+        example: 1
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    responses:
+      "204":
+        description: No content
+carts:
+  get:
+    description: List carts
+    parameters:
+      - $ref: "../parameters.yml#/limit"
+      - $ref: "../parameters.yml#/includeCart"
+    responses:
+      "200":
+        $ref: "#/responses/cartResources"
+carts/{id}:
+  patch:
+    description: Update cart
+    parameters:
+      - description: Id of a cart
+        example: 1
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      content:
+        application/vnd.api+json:
+          example:
+            data:
+              type: carts
+              relationships:
+                cart_items:
+                  data:
+                    - lid: 1
+                      type: cart_items
+                      attributes:
+                        quantity: 1
+                      relationships:
+                        store_product:
+                          data:
+                            id: 1
+                            type: store_products
+                    - lid: 2
+                      type: cart_items
+                      attributes:
+                        quantity: 1
+                      relationships:
+                        store_product:
+                          data:
+                            id: 2
+                            type: store_products
+          schema:
+            properties:
+              data:
+                properties:
+                  type:
+                    type: string
+                  relationships:
+                    properties:
+                      cart_items:
+                        properties:
+                          data:
+                            items:
+                              properties:
+                                lid:
+                                  type: integer
+                                type:
+                                  type: string
+                                attributes:
+                                  properties:
+                                    quantity:
+                                      type: integer
+                                  type: object
+                                relationships:
+                                  properties:
+                                    store_product:
+                                      properties:
+                                        data:
+                                          properties:
+                                            id:
+                                              type: integer
+                                            type:
+                                              type: string
+                                          type: object
+                                      type: object
+                                  type: object
+                              type: object
+                            type: array
+                        type: object
+                    type: object
+                type: object
+            type: object
+    responses:
+      "200":
+        $ref: "#/responses/cartResource"
+  delete:
+    description: Delete cart
+    parameters:
+      - description: Id of a cart
+        example: 1
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    responses:
+      "204":
+        description: No content
+carts/{id}/cart-items:
+  post:
+    description: Add cart item
+    parameters:
+      - description: Id of a cart
+        example: 1
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      content:
+        application/vnd.api+json:
+          example:
+            data:
+              type: cart_items
+              attributes:
+                quantity: 1
+              relationships:
+                store_product:
+                  data:
+                    id: 1
+                    type: store_products
+          schema:
+            properties:
+              data:
+                properties:
+                  type:
+                    type: string
+                  attributes:
+                    properties:
+                      quantity:
+                        type: integer
+                    type: object
+                  relationships:
+                    properties:
+                      store_product:
+                        properties:
+                          data:
+                            properties:
+                              id:
+                                type: integer
+                              type:
+                                type: string
+                            type: object
+                        type: object
+                type: object
+    responses:
+      201:
+        $ref: "#/responses/cartItemResource"
+consumers/{id}/carts:
+  post:
+    description: Create cart
+    parameters:
+      - description: Id of a consumer
+        example: 1
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    requestBody:
+      content:
+        application/vnd.api+json:
+          example:
+            data:
+              type: carts
+              relationships:
+                cart_items:
+                  data:
+                    - lid: 1
+                      type: cart_items
+                      attributes:
+                        quantity: 1
+                      relationships:
+                        store_product:
+                          data:
+                            id: 1
+                            type: store_products
+                    - lid: 2
+                      type: cart_items
+                      attributes:
+                        quantity: 1
+                      relationships:
+                        store_product:
+                          data:
+                            id: 2
+                            type: store_products
+          schema:
+            properties:
+              data:
+                properties:
+                  type:
+                    type: string
+                  relationships:
+                    properties:
+                      cart_items:
+                        properties:
+                          data:
+                            items:
+                              properties:
+                                lid:
+                                  type: integer
+                                type:
+                                  type: string
+                                attributes:
+                                  properties:
+                                    quantity:
+                                      type: integer
+                                  type: object
+                                relationships:
+                                  properties:
+                                    store_product:
+                                      properties:
+                                        data:
+                                          properties:
+                                            id:
+                                              type: integer
+                                            type:
+                                              type: string
+                                          type: object
+                                      type: object
+                                  type: object
+                              type: object
+                            type: array
+                        type: object
+                    type: object
+                type: object
+            type: object
+    responses:
+      "200":
+        $ref: "#/responses/cartResource"

@@ -1,0 +1,1096 @@
+distance:
+  description: Range of stores to be returned from user's location in meters, if not set - "distance" settings parameter is taken
+  example: 20000
+  in: query
+  name: distance
+  required: false
+  schema:
+    type: integer
+filterByAvailableToCoordinates:
+  description: coordinates to filter products
+  example:
+    latitude: 39.925533
+    longitude: 32.866287
+  in: query
+  name: filter[available_to_coordinates]
+  required: true
+  schema:
+    properties:
+      latitude:
+        type: number
+      longitude:
+        type: number
+    type: object
+filterByBrand:
+  description: comma delimited list of brands' Ids to filter stores by brands
+  example: 1,2,4
+  in: query
+  name: filter[brand]
+  required: false
+  schema:
+    type: string
+filterByCuisine:
+  description: comma delimited list of cuisines' Ids to filter stores by cuisines
+  example: 1,2,4
+  in: query
+  name: filter[cuisine]
+  required: false
+  schema:
+    type: string
+filterByDietaryPreference:
+  description: comma delimited list of dietary preferences' Ids to filter stores by dietary preferences
+  example: 1,2,4
+  in: query
+  name: filter[dietary_preference]
+  required: false
+  schema:
+    type: string
+filterByIsActive:
+  description: comma delimited list of store is active states to filter stores by states
+  example: true
+  in: query
+  name: filter[is_active]
+  required: false
+  schema:
+    type: string
+filterByIsAvailable:
+  description: comma delimited list of store is available states to filter stores by states
+  example: true
+  in: query
+  name: filter[is_available]
+  required: false
+  schema:
+    type: string
+filterByIsDeleted:
+  description: comma delimited list of store is deleted states to filter stores by states
+  example: true,false
+  in: query
+  name: filter[is_deleted]
+  required: false
+  schema:
+    type: string
+filterByAcceptingOrders:
+  description: comma delimited list of accepting orders options to filter stores by availability
+  example: true,false
+  in: query
+  name: filter[accepting_orders]
+  required: false
+  schema:
+    type: string
+filterByStore:
+  description: comma delimited list of stores' Ids to filter by stores
+  example: 1,305
+  in: query
+  name: filter[store]
+  required: false
+  schema:
+    type: string
+filterByStores:
+  description: comma delimited list of stores' Ids to filter by stores
+  example: 1,305
+  in: query
+  name: filter[stores]
+  required: false
+  schema:
+    type: string
+filterByAddress:
+  description: address' Id to filter
+  example: 1
+  in: query
+  name: filter[address]
+  required: false
+  schema:
+    type: string
+filterByCheapestStoreProductDiscount:
+  description: gt:value to filter by store product discount
+  example: true
+  in: query
+  name: filter[cheapest_store_product.discount_percent]
+  required: false
+  schema:
+    type: string
+filterByConsumer:
+  description: comma delimited list of consumers' Ids to filter by consumer
+  example: 1,305
+  in: query
+  name: filter[consumer]
+  required: false
+  schema:
+    type: string
+filterByCourier:
+  description: comma delimited list of couriers' Ids to filter by courier
+  example: 1,305
+  in: query
+  name: filter[courier]
+  required: false
+  schema:
+    type: string
+filterByCountryCode:
+  description: comma delimited list of countries to filter by country
+  example: KG,US
+  in: query
+  name: filter[country_code]
+  required: false
+  schema:
+    type: string
+filterByOrderState:
+  description: comma delimited list of order state ids to filter by
+  example: 1,6
+  in: query
+  name: filter[order_state]
+  required: false
+  schema:
+    type: string
+filterByPromoCode:
+  description: comma delimited list of promo code ids to filter by
+  example: 1,4
+  in: query
+  name: filter[promo_code]
+  required: false
+  schema:
+    type: string
+filterByProductCategory:
+  description: comma delimited list of product category ids to filter by
+  example: 1,4
+  in: query
+  name: filter[product_category]
+  required: false
+  schema:
+    type: string
+filterByProductSubcategoryProductCategory:
+  description: comma delimited list of product category ids to filter by
+  example: 1,4
+  in: query
+  name: filter[product_subcategory.product_category]
+  required: false
+  schema:
+    type: string
+filterByStoreProductIsActive:
+  description: boolean value to filter by store product is active
+  example: true
+  in: query
+  name: filter[store_products.is_active]
+  required: false
+  schema:
+    type: string
+filterByStoreProductIsAvailable:
+  description: boolean value to filter by store product is active
+  example: true
+  in: query
+  name: filter[store_products.is_available]
+  required: false
+  schema:
+    type: string
+filterByUserableType:
+  description: comma delimited list of userable types to filter by
+  example: App\Models\Administrator,App\Models\Storekeeper
+  in: query
+  name: filter[userable_type]
+  required: false
+  schema:
+    enum:
+      - App\Models\Administrator
+      - App\Models\DataOperator
+      - App\Models\Consumer
+      - App\Models\Storekeeper
+      - App\Models\Courier
+    type: string
+filterByUser:
+  description: comma delimited list of users' Ids to filter by user
+  example: 1,2,304
+  in: query
+  name: filter[user]
+  required: false
+  schema:
+    type: string
+filterByUserType:
+  description: comma delimited list of user types to filter by
+  example: Consumer,Courier
+  in: query
+  name: filter[user_type]
+  required: false
+  schema:
+    type: string
+filterByValidityType:
+  description: validity type value to filter by
+  example: Permanent
+  in: query
+  name: filter[validity_type]
+  required: false
+  schema:
+    enum:
+      - Permanent
+      - Defined
+    type: string
+filterByVisibilityType:
+  description: visibility type value to filter by
+  example: Public
+  in: query
+  name: filter[visibility_type]
+  required: false
+  schema:
+    enum:
+      - Public
+      - Private
+    type: string
+filterByProductSubcategory:
+  description: product subcategory id to filter by product subcategory
+  example: 1
+  in: query
+  name: filter[product_subcategory]
+  required: false
+  schema:
+    type: string
+include:
+  description: customize which related resources should be returned
+  example: cuisines,store_image,storekeeper.user
+  in: query
+  name: include
+  required: false
+  schema:
+    type: string
+    enum:
+      - cuisines
+      - store_image
+      - storekeeper
+      - storekeeper.user
+includeFeaturedProductCategory:
+  description: customize which related resources should be returned
+  example: featured_product_category
+  in: query
+  name: include
+  required: false
+  schema:
+    type: string
+    enum:
+      - products.product_images
+includeRecipe:
+  description: customize which related resources should be returned
+  example: recipe
+  in: query
+  name: include
+  required: false
+  schema:
+    type: string
+    enum:
+      - cuisines
+      - recipe_ingredients
+      - recipe_ingredients.ingredient
+      - recipe_ingredients.measurement_unit
+      - recipe_images
+includeRecipeIngredient:
+  description: customize which related resources should be returned
+  example: ingredient,measurement_unit
+  in: query
+  name: include
+  required: false
+  schema:
+    type: string
+    enum:
+      - ingredient
+      - measurement_unit
+includeStoreImage:
+  description: customize which related resources should be returned
+  example: store_image
+  in: query
+  name: include
+  required: false
+  schema:
+    type: string
+    enum:
+      - store_image
+includeBanner:
+  description: customize which related resources should be returned
+  example: banner_image
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - banner_image
+    type: string
+includeCart:
+  description: customize which related resources should be returned
+  example: cart_items
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - cart_items
+      - cart_items.store_product
+      - consumer
+      - consumer.user
+      - cart_items.store_product.product
+      - cart_items.store_product.product.product_images
+      - cart_items.store_product.product.measurement_unit
+    type: string
+includeChat:
+  description: customize which related resources should be returned
+  example: chat
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - chat
+    type: string
+includeCuisineImage:
+  description: customize which related resources should be returned
+  example: cuisine_image
+  in: query
+  name: include
+  schema:
+    enum:
+      - cuisine_image
+    type: string
+includeCuisine:
+  description: customize which related resources should be returned
+  example: cuisine
+  in: query
+  name: include
+  schema:
+    enum:
+      - cuisines
+    type: string
+includeFAQ:
+  description: customize which related resources should be returned
+  example: faq
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - faq
+    type: string
+includeUser:
+  description: customize which related resources should be returned
+  example: User
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - user
+    type: string
+includeFavorites:
+  description: customize which related resources should be returned
+  example: stores
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - stores
+    type: string
+paymentFieldSet:
+  description: >-
+    For the Payment resource customize the set of attributes and relationships that should be returned (comma-delimited
+    list). If none set, then the default list is returned ('state', 'amount', 'event', 'order', 'consumer').
+  example: >-
+    card,event
+  in: query
+  name: fields[payments]
+  required: false
+  schema:
+    enum:
+      - state
+      - amount
+      - event
+      - order
+      - consumer
+      - card
+    type: string
+includeOrderResource:
+  description: >-
+    customize which related resources should be returned (comma-delimited
+    list)
+  example: >-
+    address,courier,store,order_state,preferences
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - address
+      - consumer
+      - consumer.user
+      - courier
+      - courier.user
+      - order_state
+      - order_items
+      - order_items.store_product
+      - order_items.store_product.product.product_images
+      - store
+      - store.store_image
+      - consumer_store_review
+      - consumer_courier_review
+      - preferences
+      - payments
+      - cancel_reason
+      - delivery_instruction
+      - delivery_instruction.delivery_instruction_options
+      - store_orders.store
+      - store_orders.order_items.store_product.product.measurement_unit
+      - store_orders.order_items.store_product.product.product_images
+      - store_orders.order_items.store_product.store_product_category
+    type: string
+includeOrderCollection:
+  description: >-
+    customize which related resources should be returned (comma-delimited
+    list)
+  example: >-
+    address,courier,store,order_state,preferences
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - address
+      - consumer
+      - consumer.user
+      - courier
+      - courier.user
+      - order_state
+      - order_items
+      - order_items.store_product
+      - order_items.store_product.product.product_images
+      - reviews
+      - preferences
+      - store
+      - store.store_image
+      - cancel_reason
+      - delivery_instruction
+      - delivery_instruction.delivery_instruction_options
+      - store_orders
+      - store_orders.store
+      - store_orders.order_items.store_product.product.product_images
+      - store_orders.order_items.store_product.product.measurement_unit
+      - store_orders.order_items.store_product.store_product_category
+    type: string
+includeProductSubscription:
+  description: customize which related resources should be returned
+  example: product
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - product
+      - user
+    type: string
+includeStoreProduct:
+  description: customize which related resource should be returned (comma-delimited list)
+  example: product_images
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - product_images
+      - store_product_category
+      - store_product_category.store
+      - dietary_preferences
+    type: string
+includeProduct:
+  description: >-
+    customize which related resources should be returned (comma-delimited
+    list)
+  example: >-
+    product_subcategory,brand,store_products,dietary_preferences,cuisines,measurement_unit,product_images,accessory_products,accessory_products.measurement_unit
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - store_products
+      - product_subcategory
+      - dietary_preferences
+      - cuisines
+      - measurement_unit
+      - product_images
+      - accessory_products
+      - brand
+      - accessory_products.measurement_unit
+    type: string
+includeProductRequest:
+  description: >-
+    customize which related resources should be returned (comma-delimited
+    list)
+  example: >-
+    product_request_images
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - product_request_images
+    type: string
+includeProductCategory:
+  description: customize which related resources should be returned (comma-delimited list)
+  example: product_subcategories
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - product_subcategories
+    type: string
+includeRecipes:
+  description: customize which related resources should be returned (comma-delimited list)
+  example: cuisines,recipe_ingredients,recipe_images
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - cuisines
+      - recipe_ingredients
+      - recipe_images
+    type: string
+includeProductSubcategories:
+  description: customize which related resources should be returned (comma-delimited list)
+  example: product_category
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - product_category
+    type: string
+includeProductSubcategory:
+  description: customize which related resources should be returned (comma-delimited list)
+  example: product_category
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - product_subcategory
+    type: string
+includeProductCollection:
+  description: >-
+    customize which related resources should be returned (comma-delimited
+    list)
+  example: >-
+    product_subcategory,store_products,dietary_preferences,measurement_unit,product_images,accessory_products,accessory_products.measurement_unit
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - product_subcategory
+      - store_products
+      - dietary_preferences
+      - measurement_unit
+      - product_images
+      - accessory_products
+      - accessory_products.measurement_unit
+    type: string
+includeProductRequestCollection:
+  description: >-
+    customize which related resources should be returned (comma-delimited
+    list)
+  example: >-
+    product_request_images
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - product_request_images
+    type: string
+includeStoreProducts:
+  description: customize which related resources should be returned (comma-delimited list)
+  example: store_products
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - store_products
+    type: string
+includeReviews:
+  description: customize which related resources should be returned (comma-delimited list)
+  example: "order,order.consumer.user,order.courier.user,order.store"
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - order
+      - order.consumer
+      - order.consumer.user
+      - order.courier
+      - order.courier.user
+      - order.store
+    type: string
+includeStore:
+  description: customize which related resources should be returned
+  example: productCategory.store
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - "1"
+    type: string
+includeStores:
+  description: customize which related resources should be returned
+  example: stores
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - "stores"
+    type: string
+includeTrip:
+  description: >-
+    customize which related resources should be returned (comma-delimeted
+    list)
+  example: order,courier,store,consumer
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - courier
+      - consumer
+      - order
+      - store
+    type: string
+includeUserable:
+  description: customize which related resources should be returned (comma-delimited list)
+  example: userable
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - userable
+    type: string
+includeVehicle:
+  description: customize which related resources should be returned (comma-delimited list)
+  example: vehicle_make,vehicle_model,vehicle_type
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - vehicle_make
+      - vehicle_model
+      - vehicle_type
+      - vehicle_registration_image
+      - vehicle_insurance_image
+      - vehicle_images
+includeAdministrator:
+  description: customize which related resources should be returned
+  example: user
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - "user"
+    type: string
+includeDataOperator:
+  description: customize which related resources should be returned
+  example: user
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - "user"
+    type: string
+includeProductReportResource:
+  description: customize which related resources should be returned
+  example: product,consumer.user
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - "product"
+      - "consumer"
+      - "consumer.user"
+    type: string
+includeProductReportCollection:
+  description: customize which related resources should be returned
+  example: product,consumer.user
+  in: query
+  name: include
+  required: false
+  schema:
+    enum:
+      - "product"
+      - "consumer"
+      - "consumer.user"
+    type: string
+latitude:
+  description: User's latitude
+  example: 38.423733
+  in: query
+  name: latitude
+  required: true
+  schema:
+    type: number
+latitudeOptional:
+  description: User's latitude
+  example: 38.423733
+  in: query
+  name: latitude
+  required: false
+  schema:
+    type: number
+limit:
+  description: Number of entities to return
+  example: 10
+  in: query
+  name: limit
+  required: false
+  schema:
+    default: 10
+    type: integer
+filterBySubtotal:
+  description: The subtotal of the order for which the tip options are evaluated
+  example: 10
+  in: query
+  name: subtotal
+  required: false
+  schema:
+    default: 10
+    type: number
+longitude:
+  description: User's longitude
+  example: 27.142826
+  in: query
+  name: longitude
+  required: true
+  schema:
+    type: number
+date:
+  description: Date to filter by in the format YYYY-MM-DD
+  example: 2020-01-01
+  in: query
+  name: date
+  required: true
+  schema:
+    type: string
+longitudeOptional:
+  description: User's longitude
+  example: 27.142826
+  in: query
+  name: longitude
+  required: false
+  schema:
+    type: number
+orderFilterOrderType:
+  description: a keyword to filter orders by type
+  example: dispatched
+  in: query
+  name: filter[order_type]
+  required: false
+  schema:
+    enum:
+      - dispatched
+      - in_progress
+      - new
+    type: string
+filterByScheduledAfter:
+  description: return only orders scheduled after the given date
+  example: 2024-01-01
+  in: query
+  name: filter[scheduled_after]
+  required: false
+  schema:
+    type: string
+filterByScheduledBefore:
+  description: return only orders sent before the given date
+  example: 2024-01-01
+  in: query
+  name: filter[scheduled_before]
+  required: false
+  schema:
+    type: string
+orderSort:
+  description: >-
+    Sort settings for the response. From input takes the field and the
+    order; if there's minus symbol before the field name, then descending,
+    if none - then ascending.
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - created_at
+      - "-created_at"
+    type: string
+page:
+  description: Page of the stores list to be returned
+  example: 1
+  in: query
+  name: page
+  required: false
+  schema:
+    default: 1
+    type: integer
+products:
+  description: Comma-separated list of product ids in the basket
+  example: 1,2,3
+  in: query
+  name: products
+  required: false
+  schema:
+    default: ""
+    type: string
+referralCode:
+  description: Referral code
+  example: dryjdh71700
+  in: query
+  name: referral_code
+  required: false
+  schema:
+    type: string
+sort:
+  description: >-
+    Sort settings for the response. From input takes the field and the order
+    - if there's minus symbol before the field name, then descending, if
+    none - then ascending.
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - rating
+      - distance
+      - delivery_duration
+      - title
+      - created_at
+      - "-rating"
+      - "-distance"
+      - "-delivery_duration"
+      - "-title"
+      - "-created_at"
+    type: string
+sortBanner:
+  description: Banners sorting settings
+  example: "-title"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - title
+      - display_order
+      - "-title"
+      - "-display_order"
+    type: string
+sortBrand:
+  description: Brand sorting settings
+  example: "-title"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - title
+      - "-title"
+sortChat:
+  description: Chat sorting settings
+  example: "-created_at"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - created_at
+      - "-created_at"
+      - updated_at
+      - "-updated_at"
+    type: string
+sortConsumerCourierChat:
+  description: Consumer Courier Chat sorting settings
+  example: "-created_at"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - created_at
+      - "-created_at"
+      - updated_at
+      - "-updated_at"
+sortSupportChat:
+  description: Support Chat sorting settings
+  example: "-created_at"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - created_at
+      - "-created_at"
+      - updated_at
+      - "-updated_at"
+    type: string
+sortProduct:
+  description: Product sorting settings
+  example: "-title"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - created_at
+      - "-created_at"
+      - price
+      - "-price"
+      - popularity
+      - "-popularity"
+      - sold_quantity
+      - "-sold_quantity"
+      - search_count
+      - "-search_count"
+sortProductCategory:
+  description: Product Category sorting settings
+  example: "-title"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - title
+      - "-title"
+      - display_order
+      - "-display_order"
+sortProductSubcategory:
+  description: Product Category sorting settings
+  example: "-title"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - title
+      - "-title"
+      - display_order
+      - "-display_order"
+      - popularity
+      - "-popularity"
+sortOrder:
+  description: >-
+    Sort settings for the response. From input takes the field and the order
+    - if there's minus symbol before the field name, then  descending, if
+    none - then ascending.
+  example: "-created_at"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - total
+      - created_at
+      - "-total"
+      - "-created_at"
+    type: string
+sortAddress:
+  description: >-
+    Sort settings for the response. From input takes the field and the order
+    - if there's minus symbol before the field name, then  descending, if
+    none - then ascending.
+  example: "-created_at"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - created_at
+      - "-created_at"
+    type: string
+sortStoreProduct:
+  description: Comma separated list of settings for the products to sort.
+  example: "-price"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - created_at
+      - price
+      - discounted_price
+      - discount_percent
+      - title
+      - "-created_at"
+      - "-price"
+      - "-discounted_price"
+      - "-discount_percent"
+      - "-title"
+    type: string
+sortPromoCode:
+  description: Comma separated list of settings for the promo codes sort. If param starts with '-' then ordering is descending.
+  example: "-usage_count"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - activation_date
+      - expiration_date
+      - usage_count
+      - "-activation_date"
+      - "-expiration_date"
+      - "-usage_count"
+    type: string
+sortStoreProductCategory:
+  description: Comma separated list of settings for the products to sort.
+  example: "-title"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - display_order
+      - title
+      - "-display_order"
+      - "-title"
+sortVehicleMake:
+  description: Comma separated list of settings for the vehicle makes to sort.
+  example: "-title"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - title
+      - "-title"
+sortVehicleModel:
+  description: Comma separated list of settings for the vehicle models to sort.
+  example: "-title"
+  in: query
+  name: sort
+  required: false
+  schema:
+    enum:
+      - title
+      - "-title"
+store:
+  description: >-
+    Id of the store, to which distance will de calculated. If set, the
+    attribute within_range will appear.
+  example: 123
+  in: query
+  name: store
+  required: false
+  schema:
+    type: integer
+year:
+  description: the year that earnings belong to
+  example: 2020
+  in: query
+  name: year
+  required: false
+  schema:
+    default: 2022
+    type: integer

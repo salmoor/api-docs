@@ -1,0 +1,35 @@
+asyncapi: '2.6.0'
+info:
+  title: Bakkal
+  description: Bakkal Service
+  version: '0.1.0'
+  contact:
+    name: Bakkal Engineering
+    email: engineering@bakkal.us
+    url: https://bakkal.us
+  license:
+    name: Proprietary
+defaultContentType: application/json
+id: 'https://bakkal.us'
+tags:
+  - name: Bakkal
+servers:
+  development:
+    url: soketi
+    protocol: ws
+  staging:
+    url: wss://ws-us3.pusher.com
+    protocol: ws
+  production:
+    url: wss://ws-us3.pusher.com
+    protocol: ws
+channels:
+  orders.{id}:
+    parameters:
+      id:
+        description: id of the order.
+        schema:
+          type: string
+    subscribe:
+      operationId: order
+      summary: Inform about order updates.
